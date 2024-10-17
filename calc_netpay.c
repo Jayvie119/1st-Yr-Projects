@@ -2,13 +2,15 @@
 
 int main()
 {
-    int hR = 281;
+    int hR = 0;
     int hW = 0;
     char name[80] ="";
 
     printf("Enter your name: ");
     scanf("%s", &name);
     printf("Enter your hour worked: ");
+    scanf("%d", &hW);
+    printf("Enter your hourly rate: ");
     scanf("%d", &hW);
 
     float gR = hR * hW;
