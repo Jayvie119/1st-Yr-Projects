@@ -11,7 +11,7 @@ int main()
     printf("Enter your hour worked: ");
     scanf("%d", &hW);
     printf("Enter your hourly rate: ");
-    scanf("%d", &hW);
+    scanf("%d", &hR);
 
     float gR = hR * hW;
     float wT = gR * .32;
