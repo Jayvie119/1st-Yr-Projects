@@ -39,14 +39,13 @@ int valueCheck(){
 int againCheck(){
     int x;
     do{
-        if(scanf("%d", &x) != 1){ // Check if input is a valid integer
-            printf("Invalid input! Please enter 1 or 0: ");
-            while(getchar() != '\n'); // Flush the input buffer
-        } else if(x != 1 && x != 0){ // Check if input is either 1 or 0
-            printf("Invalid Choice! (1-Yes/0-No): ");
+        scanf("%d", &x);
+        if(x != 1 && x != 0){
+            printf("Invalid Choice! Try Again? (1-Yes/0-No): ");
+            while(getchar() != '\n'); // clear input buffer
         }
-    } while(x != 1 && x != 0); // Keep asking until valid input (1 or 0)
-    return x; // Return the valid choice (1 or 0)
+    } while(x != 1 && x != 0);
+    return x;
 }
 
 // Function to perform insertion sort on a 1D array
