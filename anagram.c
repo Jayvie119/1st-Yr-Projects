@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include "location of anagram_5 in your pc"  // Include directory of anagram_5
+#include "location of anagram_5 in your pc"  // Include file path of anagram_5
 
 int main()
 {
