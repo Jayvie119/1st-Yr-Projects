@@ -2,134 +2,145 @@
 #include <string.h>
 #include <ctype.h>
 
+// Function to check if a word contains numbers or special characters
 int errorHandler (char word[]){
     int i;
     for (i = 0; word[i] != '\0';i++ ){
-        if(isdigit(word[i])) { // checks for numbers present in the input of the user
-            return 1; // return true 
+        if(isdigit(word[i])) {  // checks for numbers in the word
+            return 1;  // returns 1 (true) if a number is found
         }
-        if(!isalnum(word[i]) && word[i] != ' '){ // checks for special characters except whitespace
-            return 1; // return true
+        if(!isalnum(word[i]) && word[i] != ' '){  // checks for special characters (excluding spaces)
+            return 1;  // returns 1 (true) if a special character is found
         }
     }
-    return 0; // user input doesn't have errors.
+    return 0;  // returns 0 (false) if no errors are found in the word
 }
 
-int error(char first_word[], char second_word[]){ // checks if there are error in user input, will raise an error message if true.
-    if (errorHandler(first_word) || errorHandler(second_word)){ 
-        printf("Error: Words should not contain numbers or special characters.\nPlease try again.\n");
+// Function to check both words for errors and print an error message if any are found
+int error(char first_word[], char second_word[]){
+    if (errorHandler(first_word) || errorHandler(second_word)){  // checks if either word has an error
+        printf("Error: Words should not contain numbers or special characters.\nPlease try again.\n");  // prints an error message
     }
 }
 
+// Function to check if the two input words are anagrams
 int checkAnagrams(char first_word[], char second_word[]){
     int i;
-    int fwCount[26] = {0}; //array to count occurences of the each letters in the first words
-    int swCount[26] = {0}; //it corresponds to the 26 letters of the alphabet(a=0, b=1, c=3...)
-    int fwLen = 0, swLen = 0; // to track the numbers of each alphabet characters in word 1 and 2. ()
+    int fwCount[26] = {0};  // array to count occurrences of each letter in the first word
+    int swCount[26] = {0};  // array to count occurrences of each letter in the second word
+    int fwLen = 0, swLen = 0;  // variables to track the number of alphabet characters in each word
 
-    // counts the occurences of letters in the  first word
+    // Counts occurrences of letters in the first word
     for(i = 0; first_word[i] != '\0'; i++) {
-        if (isalpha(first_word[i])){
-            fwCount[tolower(first_word[i]) - 'a']++; //increments the count for letters (case insensitive)
-            fwLen++; // increments the letter count
+        if (isalpha(first_word[i])){  // only consider alphabetic characters
+            fwCount[tolower(first_word[i]) - 'a']++;  // increment the count for the corresponding letter
+            fwLen++;  // increment the total letter count
         } 
     }
+
+    // Counts occurrences of letters in the second word
     for(i = 0; second_word[i] != '\0'; i++) {
         if (isalpha(second_word[i])) {
-            swCount[tolower(second_word[i]) - 'a']++; //to lower capitalized letter from input of user
-            swLen++;
+            swCount[tolower(second_word[i]) - 'a']++;  // increment the count for the corresponding letter
+            swLen++;  // increment the total letter count
         }
     }
 
-    if (fwLen != swLen) { // compares the length of word 1 and 2 of user
-        return 0;  // return false = not anagrams.
+    // If the lengths of the words don't match, they cannot be anagrams
+    if (fwLen != swLen) {
+        return 0;  // return false if lengths are different
     }
 
-    for (i=0; i<26; i++) { 
-        if (fwCount[i] != swCount[i]) { // compares the occurence of letters of first word to second word
-            return 0; // return false = not anagrams.
+    // Compare the letter counts of both words
+    for (i = 0; i < 26; i++) { 
+        if (fwCount[i] != swCount[i]) {  // if counts for any letter don't match
+            return 0;  // return false
         }
     }
 
-    return 1; // words are anagrams
+    return 1;  // return true if all checks pass, meaning the words are anagrams
 }
 
-int tryAgain(){ //try again program
+// Function to prompt the user if they want to try again
+int tryAgain(){
     int sure;
     int choice;
 
     do{
         printf("Would you like to try again?\n(0 - yes / 1 - no): ");
-        if(scanf("%d", &choice) != 1){
+        if(scanf("%d", &choice) != 1){  // checks if input is valid
             printf("\nInvalid input! Please Try Again!.\n");
-            while (getchar() != '\n');
+            while (getchar() != '\n');  // clears the buffer
             continue;
-    }
-    if (choice == 1){
-        do{
-            printf("Do you want to exit the program?\n(0 - yes / 1 - no): ");
-            if(scanf("%d", &sure) !=1){
-                printf("\nInvalid input! Please Try Again!.\n");
-                while (getchar() != '\n');
-                continue;
-            }
-            if(sure == 0){
-                printf("Thank you for using our program!");
-                return 1;
-            } else if (sure ==1){
-                return 0;
-            } else {
-                printf("\nInvalid Input, try again.\n");
-            }
-        } while (sure != 1 || sure != 0);
-    } else if (choice == 0){
-        choice =0;
-        return choice;
-    } else {
-        printf("\nInvalid Input, try again.\n");
-    }
+        }
+        if (choice == 1){  // if user chooses not to try again
+            do{
+                printf("Do you want to exit the program?\n(0 - yes / 1 - no): ");
+                if(scanf("%d", &sure) != 1){  // checks if input is valid
+                    printf("\nInvalid input! Please Try Again!.\n");
+                    while (getchar() != '\n');  // clears the buffer
+                    continue;
+                }
+                if(sure == 0){  // if user chooses to exit the program
+                    printf("Thank you for using our program!");
+                    return 1;  // return 1 to exit
+                } else if (sure == 1){  // if user chooses to continue
+                    return 0;  // return 0 to continue
+                } else {
+                    printf("\nInvalid Input, try again.\n");
+                }
+            } while (sure != 1 || sure != 0);
+        } else if (choice == 0){  // if user chooses to try again
+            choice = 0;
+            return choice;
+        } else {
+            printf("\nInvalid Input, try again.\n");
+        }
     }while(choice != 0 && choice != 1);
 
-    return choice;
+    return choice;  // returns the user's choice
 }
 
+// Function to verify if two words are anagrams and display the result
 char verifyAnagram(char name[], char first_word[], char second_word[]){
-    if (checkAnagrams(first_word, second_word)){
-        printf("%s, the words %s and %s ARE Anagrams!\n", name, first_word, second_word);
+    if (checkAnagrams(first_word, second_word)){  // checks if the words are anagrams
+        printf("%s, the words %s and %s ARE Anagrams!\n", name, first_word, second_word);  // displays success message
     } else {
-        printf("%s, the words %s and %s ARE NOT Anagrams.\n", name, first_word, second_word);
+        printf("%s, the words %s and %s ARE NOT Anagrams.\n", name, first_word, second_word);  // displays failure message
     }
 }
 
+// Main function of the program
 int main()
 {
-    char first_word[80], second_word[80];
-    char name[80];
-    int choice;
+    char first_word[80], second_word[80];  // arrays to hold the two words/phrases
+    char name[80];  // array to hold the user's name
+    int choice;  // variable to store the user's choice to try again
 
-    //INPUTS
+    // INPUTS - Getting user input for name, and two words/phrases
     do{    
         printf("Welcome to Anagram Checker!\nPlease enter your name: ");
-        scanf("%s", &name);
-        getchar();// so printf wont concatinate.
+        scanf("%s", &name);  // reads the user's name
+        getchar();  // consumes the newline character left by scanf
 
         do{
-            printf("%s, enter the first word/phrase: ", name);
-            fgets(first_word, sizeof(first_word), stdin); //fgets to get the whole input of user for first word
-            first_word  [strcspn(first_word, "\n")] = '\0'; // finds \n input and replaces with in fgets if there are any. nothing happens if theres none.
+            printf("%s, enter the first word/phrase: ", name);  // prompt user for first word
+            fgets(first_word, sizeof(first_word), stdin);  // reads the first word
+            first_word[strcspn(first_word, "\n")] = '\0';  // removes the newline character from the input
 
-            printf("Enter the second word/phrase: ");
-            fgets(second_word, sizeof(second_word), stdin); //fgets to get the whole input of user for first word
-            second_word[strcspn(second_word, "\n")] = '\0';
-            
-            //OUTPUTS
-            error(first_word, second_word); //checks error using errorHandler function, raises an error if there are.
-        }while(errorHandler(first_word) || errorHandler(second_word));
+            printf("Enter the second word/phrase: ");  // prompt user for second word
+            fgets(second_word, sizeof(second_word), stdin);  // reads the second word
+            second_word[strcspn(second_word, "\n")] = '\0';  // removes the newline character
 
-            verifyAnagram(name, first_word, second_word); //using anagramChecker, it outputs whether the 2 inputs are anagram or not.
-        // Try again
-        choice = tryAgain();// try again prompt.
-    }while (choice == 0);
+            // OUTPUTS - Checking for errors in the user input
+            error(first_word, second_word);  // checks if the words have errors (invalid characters)
+        }while(errorHandler(first_word) || errorHandler(second_word));  // repeat if there's an error in the input
 
-    return 0;   
+        verifyAnagram(name, first_word, second_word);  // checks if the two words are anagrams and prints the result
+
+        // Try again prompt
+        choice = tryAgain();  // asks if the user wants to try again
+    }while (choice == 0);  // repeat if user chooses to try again
+
+    return 0;  // end of program
 }
