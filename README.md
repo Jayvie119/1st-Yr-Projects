@@ -1,24 +1,42 @@
-THIS REPOSITORY CONTAINS ALL MY TASKS:
+💻 **Programming Tasks Repository**
+This repository contains all my programming tasks from the 1st and 2nd semesters. Each program is written in C and demonstrates different fundamental concepts in programming.
 
-> calc_netpay - calculates and gives salary summary based on your "Hours worked" (Gross Pay, Withholding Tax, and Net Pay)
+📘 **1st Semester Projects**
+> _calc_netpay_ – Calculates and summarizes salary based on hours worked, including Gross Pay, Withholding Tax, and Net Pay.
 
-> cash_denomination - prompts the user to enter an amount of money, it will provide the denominations of the input from the thousands
+> _cash_denomination_ – Prompts the user to enter an amount and displays denominations starting from the thousands.
 
-> hours_mins_convertions - enter the desired number of hours to be converted to minutes and seconds
+> _hours_mins_convertions_ – Converts entered hours into minutes and seconds.
 
-> ideal_partner_age - Plato's theory (age/2+7) that a person's ideal partner age should be within "your age divided by 2 plus 7"
+> _ideal_partner_age_ – Implements Plato’s theory: Ideal partner age = (your age ÷ 2) + 7.
 
-> days - Converts denomination of days to year/s, week/s, day/s
+> _days_ – Converts a total number of days into years, weeks, and days.
 
-> seconds_time - converts denomination of seconds to hour/s, minute/s, second/s
+> _seconds_time_ – Converts seconds into hours, minutes, and seconds.
 
-> smiley - (Random Task) Sums value of 3 digits multiplied by 2
+> _smiley_ – A random task that calculates the sum of three digits, multiplied by 2.
 
-> wages - calculates hourly wage with overtime pay (minimum wage)
+> _wages_ – Computes hourly wages including overtime based on minimum wage.
 
-> zodSign - determines the zodiac sign based on birthdate
+> _zodSign_ – Determines the user's zodiac sign based on their birthdate.
 
-> menu - a menu program utilizing switchcases (smiley, ideal_partner_age, seconds_time) 
+> _menu_ – A menu-driven program using switch cases (features: smiley, ideal_partner_age, seconds_time).
 
-> anagram - main program (needs to call anagram_5)
-> anagram_5 - function file (for anagram) 
+> _anagram_ – Main program to check for anagrams (calls anagram_5 function file).
+> _anagram_5_ – Function file used by the anagram program.
+
+-----------
+📗 **2nd Semester Projects**
+> _multidem_ – Accepts user input for a 2D array and searches for a specified value, returning its index if found.
+
+> _bubble_sort_ – Sorts a 2D array using the bubble sort algorithm in ascending order.
+
+> _selection_sort_ – Sorts a 2D array using the selection sort algorithm in ascending order.
+
+> _insertion_sort_ – Sorts a 2D array using the insertion sort algorithm in ascending order.
+
+> _ho1_ – Compilation of multiple function challenges using 2D arrays.
+
+> _error_handlers_ – Collection of custom error-handling functions.
+
+> _pointer_ – Demonstrates value referencing and memory addresses using pointers.
