@@ -13,3 +13,12 @@ THIS REPOSITORY CONTAINS ALL MY TASKS:
 > seconds_time - converts denomination of seconds to hour/s, minute/s, second/s
 
 > smiley - (Random Task) Sums value of 3 digits multiplied by 2
+
+> wages - calculates hourly wage with overtime pay (minimum wage)
+
+> zodSign - determines the zodiac sign based on birthdate
+
+> menu - a menu program utilizing switchcases (smiley, ideal_partner_age, seconds_time) 
+
+> anagram - main program (needs to call anagram_5)
+> anagram_5 - function file (for anagram) 
