@@ -2,27 +2,35 @@
 
 int main()
 {
-    int hR = 0;
-    int hW = 0;
-    char name[80] ="";
+    // Variable declaration
+    int hR = 0;           // Hourly rate
+    int hW = 0;           // Hours worked
+    char name[80] = "";   // Character array to store the user's name
 
+    // Prompt user to enter their name
     printf("Enter your name: ");
-    scanf("%s", &name);
+    scanf("%s", &name);  // Read name (note: only reads one word)
+
+    // Prompt user to enter hours worked
     printf("Enter your hour worked: ");
-    scanf("%d", &hW);
+    scanf("%d", &hW);  // Read hours worked
+
+    // Prompt user to enter hourly rate
     printf("Enter your hourly rate: ");
-    scanf("%d", &hR);
+    scanf("%d", &hR);  // Read hourly rate
 
-    float gR = hR * hW;
-    float wT = gR * .32;
-    float nP = gR - wT;
+    // Compute gross pay, withholding tax, and net pay
+    float gR = hR * hW;     // Gross pay = hourly rate * hours worked
+    float wT = gR * 0.32;   // Withholding tax = 32% of gross pay
+    float nP = gR - wT;     // Net pay = gross pay - withholding tax
 
-    printf("%s" ",here are your: \n", name);
-    printf("Hourly rate: " "%d \n", hR);
-    printf("Hour worked: ""%d \n", hW);
-    printf("Gross pay: " "%.2f \n", gR);
-    printf("Withholding tax: " "%.2f \n", wT);
-    printf("Net pay: " "%.2f \n", nP);
+    // Display the results
+    printf("%s, here are your: \n", name);         // Display user's name
+    printf("Hourly rate: %d \n", hR);              // Show hourly rate
+    printf("Hour worked: %d \n", hW);              // Show hours worked
+    printf("Gross pay: %.2f \n", gR);              // Show gross pay
+    printf("Withholding tax: %.2f \n", wT);        // Show withholding tax
+    printf("Net pay: %.2f \n", nP);                // Show net pay
 
 
 return 0;
