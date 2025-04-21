@@ -41,3 +41,5 @@ This repository contains all my programming tasks from the 1st and 2nd semesters
 > _error_handlers_ – Collection of custom error-handling functions.
 
 > _pointer_ – Demonstrates value referencing and memory addresses using pointers.
+
+> _blindcode_ - Separates and Outputs all Even and Odd in an Array, using Array Acting as Pointers V1 & V2, and Pointer Acting as Arrays.
