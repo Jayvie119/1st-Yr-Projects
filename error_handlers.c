@@ -1,83 +1,62 @@
 #include <stdio.h>
 
-// Function: inputCheck
-// Purpose: Prompt the user until they enter a positive integer (>0)
-int inputCheck(){
+#define EMPLOYEE_COUNT 2
+
+// Struct for storing time
+struct Time {
+	int hour;
+	int minute;
+};
+
+// Struct for storing employee records
+struct EmployeeRecord {
+	char name[80];
+	struct Time timeIn;
+	struct Time timeOut;
+};
+
+// Input validation for integers > 0
+int inputCheck(const char *prompt){
 	int x;
 	char c;
 	while(1){
-		printf("\nEnter an integer: ");
-		// Check if input is an integer and greater than 0
-		if(scanf("%d", &x)==1 && x>0){
-			// Clear input buffer
-			while((c=getchar())!='\n' && c!= EOF);
+		printf("%s", prompt);
+		if(scanf("%d", &x)==1 && x >= 0){
+			while((c=getchar())!='\n' && c!=EOF); // clear buffer
 			return x;
 		}
-		// If input is invalid
-		printf("Error! Enter a valid integer.\n");
-		// Clear invalid input
-		while((c=getchar())!='\n' && c!= EOF);
+		printf("Error! Please enter a valid positive integer.\n");
+		while((c=getchar())!='\n' && c!=EOF); // clear buffer
 	}
 }
 
-// Function: valueCheck
-// Purpose: Prompt the user until they enter a valid integer (any value)
-int valueCheck(){
-	int x;
-	char c;
-	while(1){
-		printf("\nEnter an integer: ");
-		// Check if input is a valid integer
-		if(scanf("%d", &x)==1){
-			// Clear input buffer
-			while((c=getchar())!='\n' && c!= EOF);
-			return x;
-		}
-		// If input is invalid
-		printf("Error! Enter a valid integer.\n");
-		// Clear invalid input
-		while((c=getchar())!='\n' && c!= EOF);
+int main(){	
+	int i;
+	struct EmployeeRecord employees[EMPLOYEE_COUNT];
+
+	for ( i = 0; i < EMPLOYEE_COUNT; i++) {
+		printf("\n---- Enter Details for Employee %d: \n", i + 1);
+
+		// Requests Name
+		printf("Enter employee name: ");
+		fgets(employees[i].name, sizeof(employees[i].name), stdin);
+
+		// Requests Time Check-in & Check-out
+		employees[i].timeIn.hour = inputCheck("Enter Time In (Hour 0-23): ");
+		employees[i].timeIn.minute = inputCheck("Enter Time In (Minute 0-59): ");
+
+		employees[i].timeOut.hour = inputCheck("Enter Time Out (Hour 0-23): ");
+		employees[i].timeOut.minute = inputCheck("Enter Time Out (Minute 0-59): ");
 	}
-}
 
-// Function: againCheck
-// Purpose: Ask the user if they want to retry (1 for Yes, 0 for No)
-// Only accepts 0 or 1 as valid input
-int againCheck(){
-	int x;
-	char c;
-	while(1){
-		printf("\nError! Try again? 1-Yes / 0-No: ");
-		// Check if input is either 0 or 1
-		if(scanf("%d", &x)==1 && (x==0||x==1)){
-			// Clear input buffer
-			while((c=getchar())!='\n' && c!= EOF);
-			return x;
-		}
-		// If input is not 0 or 1
-		printf("Error! Enter 1 for Yes or 0 for No.\n");
-		// Clear invalid input
-		while((c=getchar())!='\n' && c!= EOF);
+	// Print all records
+	printf("\n===== Employee Records =====\n");
+	for ( i = 0; i < EMPLOYEE_COUNT; i++) {
+		printf("\nEmployee %d:\n", i + 1);
+		printf("Name     : %s", employees[i].name);
+		printf("Time In  : %02d:%02d\n", employees[i].timeIn.hour, employees[i].timeIn.minute);
+		printf("Time Out : %02d:%02d\n", employees[i].timeOut.hour, employees[i].timeOut.minute);
 	}
-}
 
-int main(){
-	int num, value, retry;
-	
-	// Test for inputCheck (positive integer)
-	printf("Testing Input Check: ");
-	num = inputCheck();
-	printf("You entered %d\n\n", num);
-	
-	// Test for valueCheck (any integer)
-	printf("Testing value Check: ");
-	value = valueCheck();
-	printf("You entered %d\n\n", value);	
-
-	// Test for againCheck (1 or 0 only)
-	printf("Testing again Check: ");
-	retry = againCheck();
-	printf("You entered %d\n\n", retry);	
-	
 	return 0;
 }
