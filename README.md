@@ -44,4 +44,4 @@ This repository contains all my programming tasks from the 1st and 2nd semesters
 
 > _blindcode_ - Separates and Outputs all Even and Odd in an Array, using Array Acting as Pointers V1 & V2, and Pointer Acting as Arrays.
 
->_TimeIn_ - Utilizing Structs to get information such as name, time-n & out.
+>_TimeIn_ - Utilizing Structs to get information such as name, time-in & out. (UPDATE: Added Error Handler)
