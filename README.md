@@ -46,4 +46,4 @@ This repository contains all my programming tasks from the 1st and 2nd semesters
 
 >_TimeIn_ - Utilizing Structs to get information such as name, time-in & out. (UPDATE: Added Error Handler)
 
->Receipt
+>_Book_ - Utilizing Structs to get the information of the most cheapest and most expensive books.
