@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define STOCK_SIZE 50
+#define STOCK_SIZE 101
 
 struct shoe{
 	int style_num;
@@ -42,9 +42,13 @@ int main() {
 				printf("Invalid index.");
 				break;
 			}
-			printf("Enter Style Number: ");
+			printf("Enter Style Number (1-50): ");
 			scanf("%d", &stock[index].style_num);
-
+			if(stock[index].style_num < 1 || stock[index].style_num > 50) {
+				printf("Invalid style number. Must be between 1 and 50.\n");
+				break;
+			}
+			
 			printf("Enter Price: ");
 			scanf("%f", &stock[index].price);
 			
