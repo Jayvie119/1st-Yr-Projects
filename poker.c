@@ -24,6 +24,7 @@ int isStraight(int count[]){
 }
 
 //Main Process of the Poker
+// Whole struct to func
 void poker(struct card *cSptr, int count[]){
 	int one =0, three=0, four=0;
 	int flush =1;
