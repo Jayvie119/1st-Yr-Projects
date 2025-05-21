@@ -48,4 +48,6 @@ This repository contains all my programming tasks from the 1st and 2nd semesters
 
 >_Book_ - Utilizing Structs to get the information of the most cheapest and most expensive books.
 
->_Poker_ - Utilizing Structs in Function to play Poker (Nothing, One Pair, Two Pairs, Three of a Kind, Full House, Straight, Flush, Four of a Kind, Straight Flush).
+>_Poker_ - Utilizing Structs in a Function to play Poker (Nothing, One Pair, Two Pairs, Three of a Kind, Full House, Straight, Flush, Four of a Kind, Straight Flush).
+
+>_Airplane_ - Utilizing Structs in a Function to simulate a booking of seats in an airplane.
