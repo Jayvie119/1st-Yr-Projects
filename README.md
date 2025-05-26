@@ -22,6 +22,7 @@ This repository contains all my programming tasks from the 1st and 2nd semesters
 
 > _menu_ – A menu-driven program using switch cases (features: smiley, ideal_partner_age, seconds_time).
 
+>_employeestructs_ - A program that utilizes structure to find the salary and the maximum salary among employees.
 > _anagram_ – Main program to check for anagrams (calls anagram_5 function file).
 
 > _anagram_5_ – Function file used by the anagram program.
