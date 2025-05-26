@@ -22,7 +22,6 @@ This repository contains all my programming tasks from the 1st and 2nd semesters
 
 > _menu_ – A menu-driven program using switch cases (features: smiley, ideal_partner_age, seconds_time).
 
->_employeestructs_ - A program that utilizes structure to find the salary and the maximum salary among employees.
 > _anagram_ – Main program to check for anagrams (calls anagram_5 function file).
 
 > _anagram_5_ – Function file used by the anagram program.
@@ -52,3 +51,5 @@ This repository contains all my programming tasks from the 1st and 2nd semesters
 >_Poker_ - Utilizing Structs in a Function to play Poker (Nothing, One Pair, Two Pairs, Three of a Kind, Full House, Straight, Flush, Four of a Kind, Straight Flush).
 
 >_Airplane_ - Utilizing Structs in a Function to simulate a booking of seats in an airplane.
+
+>_employeestructs_ - A program that utilizes structure to find the salary and the maximum salary among employees.
