@@ -53,3 +53,7 @@ This repository contains all my programming tasks from the 1st and 2nd semesters
 >_Airplane_ - Utilizing Structs in a Function to simulate a booking of seats in an airplane.
 
 >_employeestructs_ - A program that utilizes structure to find the salary and the maximum salary among employees.
+
+>_studenttextprog_ - A program for text file handling: Feature/s: Menu, Open, Write, Read, Append, Close.
+
+>_studentbinaryprog_ - A program for binary file handling: Feature/s: Menu, Open, Write, Read, Append, Close.
